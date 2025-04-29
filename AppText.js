@@ -1,43 +1,46 @@
 import React from "react";
-import { View,Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
 const AppText = (props) => {
   const {
     children,
-    color, 
+    color,
     fontSize,
-    fontWeight, 
-    textAlign, 
+    fontWeight,
+    textAlign,
     numberOfLines,
     styleText,
-    viewStyle,onPress
+    viewStyle,
+    onPress,
+    disabled
   } = props;
 
   return (
-    <View style={[styles.container,{...viewStyle}]}>
-    <Text
-      style={[
-        styles.text,
-        { color, fontSize, fontWeight, textAlign },
-        styleText,
-      ]}
-      numberOfLines={numberOfLines}
-      onPress={onPress}
-    >
-      {children}
-    </Text>
-</View>
+    <View style={[styles.container, { ...viewStyle }]}>
+      <Text
+        disabled={disabled}
+        style={[
+          styles.text,
+          // { color, fontSize, fontWeight, textAlign },
+          styleText,
+        ]}
+        numberOfLines={numberOfLines}
+        onPress={onPress}
+      >
+        {children}
+      </Text>
+    </View>
   );
 };
 export default AppText;
 
 const styles = StyleSheet.create({
-    container:{
-        marginRight:200
-    },
+  container: {
+    // marginRight:200
+  },
   text: {
-    marginVertical: 4, 
+    textAlign: 'center',
+    marginBottom: 2
+
   },
 });
-
-
